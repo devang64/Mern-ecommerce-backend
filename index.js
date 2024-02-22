@@ -1,8 +1,9 @@
 const app = require('./app');
-const { PORT, CLOUDINARY_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } = require('./config');
+const { CLOUDINARY_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } = require('./config');
 const connectDataBase = require('./db');
 const cloudinary = require('cloudinary');
-
+const dotenv = require("dotenv");
+const port = process.env.PORT
 
 connectDataBase();
 
@@ -12,6 +13,6 @@ cloudinary.config({
   api_secret: CLOUDINARY_API_SECRET,
 });
 
-app.listen(PORT, () => {
-  console.log(`server is running on http://localhost:${PORT}`)
+app.listen(port, () => {
+  console.log(`server is running on http://localhost:${port}`)
 })
