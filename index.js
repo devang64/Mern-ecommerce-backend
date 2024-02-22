@@ -1,8 +1,8 @@
-const app = require('./app');
-const { CLOUDINARY_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } = require('./config');
+const app = require('./app.js');
+const { CLOUDINARY_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } = require('./config.js');
 const connectDataBase = require('./db');
 const cloudinary = require('cloudinary');
-const dotenv = require("dotenv");
+require("dotenv");
 const port = process.env.PORT
 
 connectDataBase();

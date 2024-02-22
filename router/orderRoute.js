@@ -9,7 +9,7 @@ const {
 } = require("../controller/orderController");
 const router = express.Router();
 
-const { verifyUserAuthenticate, authorizeRoles } = require("../middleware/auth");
+const { verifyUserAuthenticate, authorizeRoles } = require("../Middleware/auth");
 
 router.route("/order/new").post(verifyUserAuthenticate, newOrder);
 
