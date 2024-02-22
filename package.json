@@ -13,7 +13,8 @@
     "mongoose": "^7.6.8",
     "nodemailer": "^6.9.4",
     "stripe": "^14.17.0",
-    "validator": "^13.11.0"
+    "validator": "^13.11.0",
+    "vercel": "^33.5.2"
   },
   "scripts": {
     "start": "node server.js",
