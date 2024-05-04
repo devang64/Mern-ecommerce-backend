@@ -2,8 +2,6 @@ require('dotenv').config();
 
 PORT = process.env.PORT ;
 DB_URL = process.env.DB_URL
-// # DB_URL = mongodb+srv://Devang:325869531045@cluster0.pypifiu.mongodb.net/Ecommerce
-// # db_url = mongodb+srv://devangpatel6445:U3J3tiDpkoM5mYL4@cluster0.u79dhrn.mongodb.net/
 JWT_SECRETKEY = process.env.JWT_SECRETKEY
 JWT_EXPIRE = process.env.JWT_EXPIRE
 COOKIE_EXPIRE_TIME = process.env.COOKIE_EXPIRE_TIME

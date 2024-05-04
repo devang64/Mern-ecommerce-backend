@@ -14,7 +14,7 @@ exports.registerUser = async (req, res, next) => {
       name,
       email,
       password,
-  
+
 
     });
     res.status(200).json({
@@ -61,16 +61,8 @@ exports.loginUser = async (req, res, next) => {
 };
 
 exports.logoutUser = async (req, res, next) => {
-  const token = req.cookies.token; // Retrieve the token from the cookie
-
+  const token = req.header.token;
   if (token == null) return res.sendStatus(401);
-
-  jwt.verify(token, process.env.JWT_SECRETKEY, (err, user) => {
-    if (err) return res.sendStatus(403);
-    req.user = user;
-    next();
-  });
-  res.clearCookie('token');
   res.json({ message: 'Logout successful' });
 }
 
@@ -268,22 +260,22 @@ exports.deleteUser = async (req, res, next) => {
   try {
     const deletedUser = await User.findByIdAndRemove(req.params.id);
 
-  if (!deletedUser) {
-    return next(
-      new EroorHandler(`User does not exist with Id: ${req.params.id}`, 400)
-    );
-  }
+    if (!deletedUser) {
+      return next(
+        new EroorHandler(`User does not exist with Id: ${req.params.id}`, 400)
+      );
+    }
 
-  res.status(200).json({
-    success: true,
-    message: "User Deleted Successfully",
-  });
+    res.status(200).json({
+      success: true,
+      message: "User Deleted Successfully",
+    });
   } catch (error) {
     console.log(err)
     res.status(400).json({
-      success : fail,
-      message : error.message
+      success: fail,
+      message: error.message
     })
   }
-  
+
 };
